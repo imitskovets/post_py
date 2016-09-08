@@ -15,5 +15,5 @@ except postgresql.exceptions.ClientCannotConnectError:
     print('Cannot connect! Check your internet connection and psql server status.')
     exit(-1)
 
-ps = db.prepare("SELECT now()")
+ps = db.prepare('SELECT * from n0004')
 print(ps())
