@@ -5,9 +5,16 @@ import datetime
 import numpy as np
 import postgresql.exceptions
 import postgresql.driver as pg_driver
-from matplotlib.dates import HourLocator, DateFormatter, MonthLocator
+from matplotlib.dates import HourLocator, DateFormatter
 from scipy import interpolate
 import matplotlib.pyplot as plt
+import const
+
+user = const.user
+password = const.password
+host = const.host
+db_family = const.db_family
+db_measurements = const.db_measurements
 
 
 def draw_through_points(x_plt, x0_plt, y_plt, plt_def, n):
@@ -47,13 +54,10 @@ def draw_beautiful(x_plt, x0_plt, y_plt, plt_def):
     plt_def.grid(True)
     plt_def.show()
 
-user = 'postgres'
-password = 'postgres'
-host = 'localhost'
-db_family = 'family'
-db_measurements = 'measurements'
-table_name = 'n0007'
-start_time = 1473331438
+#################################################
+table_name = 'n0007'        # Target table      #
+start_time = 1473331438     # Target start time #
+#################################################
 
 try:
     db = pg_driver.connect(user=user, password=password, host=host, port=5432, database=db_measurements)

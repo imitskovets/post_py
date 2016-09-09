@@ -3,12 +3,14 @@
 import postgresql.exceptions
 import postgresql.driver as pg_driver
 import numpy as np
+import const
 
-user = 'postgres'
-password = 'postgres'
-host = 'localhost'
-db_family = 'family'
-db_measurements = 'measurements'
+user = const.user
+password = const.password
+host = const.host
+db_family = const.db_family
+db_measurements = const.db_measurements
+
 table_name = 'n0006'
 
 try:
