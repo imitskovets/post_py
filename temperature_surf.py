@@ -10,11 +10,9 @@ host = const.host
 db_family = const.db_family
 db_measurements = const.db_measurements
 
-
 def fill_from_children(db_fam, db_mea, parent):
     ps = db_f.prepare('SELECT id,child,capacity from ' + parent + ';')
     children_list = ps()
-    print(children_list)
     if children_list[0][1] is None:
         ps = db_m.prepare('SELECT max(time) from ' + parent + ';')
         max_time = ps()[0][0]
@@ -49,4 +47,4 @@ try:
 except postgresql.exceptions.ClientCannotConnectError:
     print('Cannot connect! Check your internet connection and psql server status.')
     exit(-1)
-print(str(fill_from_children(db_f, db_m, 'n0000')))
+#print(str(fill_from_children(db_f, db_m, 'n0000')))

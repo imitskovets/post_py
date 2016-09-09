@@ -70,9 +70,7 @@ ps = db.prepare('select * from ' + table_name + ' where time > ' + str(start_tim
 points = ps()
 draw_data = np.array(points)
 x = draw_data[:, 0]
-print(datetime.datetime.now())
 x0 = np.array([datetime.datetime.fromtimestamp(x[i]) for i in range(len(x))])
 y = draw_data[:, 1]
-print(x0[0])
 # draw_through_points(x, x0, y, plt, n=len(x))
 draw_beautiful(x, x0, y, plt)
