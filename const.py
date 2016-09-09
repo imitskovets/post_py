@@ -3,6 +3,6 @@
 
 user = 'postgres'
 password = 'postgres'
-host = 'localhost'
+host = '93.175.6.247' #'localhost'
 db_family = 'family'
 db_measurements = 'measurements'
