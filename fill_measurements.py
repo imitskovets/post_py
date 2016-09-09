@@ -9,7 +9,7 @@ password = 'postgres'
 host = 'localhost'
 db_family = 'family'
 db_measurements = 'measurements'
-table_name = 'n0007'
+table_name = 'n0006'
 
 try:
     db = pg_driver.connect(user=user, password=password, host=host, port=5432, database=db_measurements)
@@ -19,14 +19,15 @@ except postgresql.exceptions.ClientCannotConnectError:
     exit(-1)
 
 try:
-    inputFile = open("input.csv")
+    inputFile = open("update.csv")
 except IOError:
     print("file not found")
 n = int(inputFile.readline())
 tmp = np.zeros(2, dtype=float)
+
 for i in range(n):
     tmp = inputFile.readline().split(",")
-    ps = db.prepare('insert into ' + table_name + '(time, temperature) values (\'' \
-                    + str(tmp[0]) + '\',\'' + str(tmp[1]) + '\');')
+    ps = db.prepare('insert into ' + table_name + '(time, temperature) values ( ' \
+                    + str(tmp[0]) + ',' + str(tmp[1]) + ' );')
     print(ps())
 inputFile.close()
