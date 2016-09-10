@@ -62,7 +62,7 @@ measurements=# \d
  
 (8 rows)
 
-#Выгледят они следующим образом:
+#Выглидят они следующим образом:
 
 measurements=# select * from n0000;
 
